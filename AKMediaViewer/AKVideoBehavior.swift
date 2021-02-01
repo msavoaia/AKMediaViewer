@@ -13,18 +13,18 @@ let kPlayIconTag: NSInteger = 50001
 
 public class AKVideoBehavior : NSObject {
     
-    public func addVideoIconToView(view: UIView, image: UIImage?) {
+    public func addVideoIconToView(_ view: UIView, image: UIImage?) {
         
         var videoIcon: UIImage? = image
         var imageView: UIImageView?
         
-        if((videoIcon == nil) || CGSizeEqualToSize(image!.size, CGSizeZero)) {
+        if((videoIcon == nil) || image!.size.equalTo(CGSize.zero)) {
             videoIcon = UIImage.init(named: "icon_big_play")
         }
         imageView = UIImageView.init(image: videoIcon)
         imageView!.tag = kPlayIconTag
-        imageView!.contentMode = UIViewContentMode.Center
-        imageView!.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
+        imageView!.contentMode = UIView.ContentMode.center
+        imageView!.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         imageView!.frame = view.bounds
         view.addSubview(imageView!)
     }
